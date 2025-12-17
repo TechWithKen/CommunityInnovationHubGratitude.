@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIHGRATITUDE — A Reflection Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙏</text></svg>">
+</head>
+<body>
+    <!-- Keyboard Controls Overlay -->
+    <div class="controls-overlay">
+        <div class="controls-content">
+            <h3>Navigation Controls</h3>
+            <div class="control-item">
+                <kbd>←</kbd> <span>Reveal next element</span>
+            </div>
+            <div class="control-item">
+                <kbd>→</kbd> <span>Hide previous element</span>
+            </div>
+            <div class="control-item">
+                <kbd>↓</kbd> or <kbd>Page Down</kbd> <span>Next slide</span>
+            </div>
+            <div class="control-item">
+                <kbd>↑</kbd> or <kbd>Page Up</kbd> <span>Previous slide</span>
+            </div>
+            <div class="control-item">
+                <kbd>P</kbd> <span>Presenter mode</span>
+            </div>
+            <div class="control-item">
+                <kbd>A</kbd> <span>Accessible view</span>
+            </div>
+            <div class="control-item">
+                <kbd>?</kbd> <span>Show/hide controls</span>
+            </div>
+            <button class="close-controls">Close</button>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+        <div class="slide-indicator">Slide <span id="current-slide">1</span> of <span id="total-slides">9</span></div>
+    </div>
+
+    <!-- Hint -->
+    <div class="hint" id="hint">
+        <span class="hint-arrow">←</span>
+        <span class="hint-text">Press ← to continue</span>
+    </div>
+
+    <!-- Presenter Notes -->
+    <div class="presenter-notes" id="presenterNotes">
+        <div class="notes-header">
+            <h4>Presenter Notes</h4>
+            <button class="close-notes">×</button>
+        </div>
+        <div class="notes-content">
+            <!-- Notes will be injected here -->
+        </div>
+    </div>
+
+    <!-- Main Slides Container -->
+    <main class="slides-container">
+        <!-- Slide 0 - Opening -->
+        <section class="slide active" id="slide0" data-slide="0">
+            <div class="slide-content">
+                <div class="staged active">
+                    <div class="visual-container">
+                        <svg class="abstract-visual" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <path class="wave wave1" d="M0,100 Q100,50 200,100 T400,100" fill="none" stroke="#4A90E2" stroke-width="2" opacity="0.6"/>
+                            <path class="wave wave2" d="M0,120 Q100,70 200,120 T400,120" fill="none" stroke="#357ABD" stroke-width="2" opacity="0.4"/>
+                            <path class="wave wave3" d="M0,80 Q100,130 200,80 T400,80" fill="none" stroke="#5DA8FF" stroke-width="2" opacity="0.3"/>
+                            <circle class="dot dot1" cx="100" cy="100" r="3" fill="#4A90E2"/>
+                            <circle class="dot dot2" cx="200" cy="100" r="3" fill="#4A90E2"/>
+                            <circle class="dot dot3" cx="300" cy="100" r="3" fill="#4A90E2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="staged">
+                    <h1 class="title-main">CIH Gratitude Class</h1>
+                </div>
+                <div class="staged">
+                    <p class="subtitle">A pause. A reflection. A moment to appreciate the journey.</p>
+                </div>
+                <div class="staged">
+                    <div class="welcome-message">
+                        <p>Welcome to a space for reflection.</p>
+                        <p>This is not a motivational talk, but a guided journey inward.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="instruction gentle">
+                        <p>There is no rush. Take your time.</p>
+                        <p>Breathe. Listen. Feel.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="cta-container">
+                        <button class="cta-button" onclick="nextSlide()">Begin Reflection</button>
+                        <p class="cta-note">or press <kbd>↓</kbd> to continue</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 1 - What Gratitude Really Means -->
+        <section class="slide" id="slide1" data-slide="1">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>What Gratitude <em>Really</em> Means</h2>
+                </div>
+                <div class="staged">
+                    <div class="definition-box">
+                        <blockquote>
+                            "Gratitude is the ability to recognize the good in our lives — even when life wasn't perfect — and to acknowledge the people, moments, and efforts that made our journey possible."
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Gratitude is not pretending everything was easy.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Gratitude is noticing growth despite difficulty.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Gratitude is awareness.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt deep">
+                        <h3>Before we go further…</h3>
+                        <p>Pause and ask yourself:</p>
+                        <p class="prompt-large">"What kind of year was this <em>really</em> for me?"</p>
+                        <div class="response-area">
+                            <textarea 
+                                id="reflection-year" 
+                                placeholder="Take a moment to reflect. Type your thoughts here..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2 - Why Gratitude Matters -->
+        <section class="slide" id="slide2" data-slide="2">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>Why Gratitude Matters</h2>
+                </div>
+                <div class="staged">
+                    <div class="benefit-point">
+                        <p>Gratitude rewires the brain toward positivity</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="benefit-point">
+                        <p>Gratitude reduces anxiety and comparison</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="benefit-point">
+                        <p>Gratitude helps us see progress clearly</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="benefit-point">
+                        <p>Gratitude strengthens relationships</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="benefit-point">
+                        <p>Gratitude creates closure and peace</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt deep">
+                        <h3>If this year were a chapter in your life story…</h3>
+                        <p class="prompt-large">What would the title be?</p>
+                        <div class="response-area">
+                            <textarea 
+                                id="chapter-title" 
+                                placeholder="Give this chapter a title. Be honest, be kind..."
+                                rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3 - Looking Back at Achievements -->
+        <section class="slide" id="slide3" data-slide="3">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>Looking Back at the Year</h2>
+                    <p class="slide-subtitle">Acknowledge your growth</p>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt">
+                        <h3>What did you learn this year?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="achievement-learned" 
+                                placeholder="Big or small, formal or informal..."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt">
+                        <h3>What skill did you improve, even a little?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="achievement-skill" 
+                                placeholder="Communication, coding, resilience, patience..."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt">
+                        <h3>What challenge did you survive?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="achievement-challenge" 
+                                placeholder="Something difficult that you made it through..."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt">
+                        <h3>What are you proud of that nobody noticed?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="achievement-quiet" 
+                                placeholder="The private victories matter most..."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt">
+                        <h3>How are you different from who you were at the beginning of the year?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="achievement-growth" 
+                                placeholder="Notice the subtle changes..."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4 - People Who Made the Year Possible -->
+        <section class="slide" id="slide4" data-slide="4">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>People Who Made This Year Possible</h2>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Nobody grows alone.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Think about the people who showed up for you.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Think about the people who believed in you.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Think about the people who corrected you.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="insight-point">
+                        <p>Think about the people who stayed.</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="reflection-prompt deep">
+                        <h3>List the people at the hub you are grateful for — and <em>why</em></h3>
+                        <p class="instruction-text">Be specific. What did they do? How did it help? How did it make you feel?</p>
+                        <div class="response-area">
+                            <textarea 
+                                id="gratitude-people" 
+                                placeholder="Name: Why they mattered...
+Name: What they taught me...
+Name: How they supported me..."
+                                rows="8"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5 - Writing a Gratitude Letter -->
+        <section class="slide" id="slide5" data-slide="5">
+            <div class="slide-content full-width">
+                <div class="staged active">
+                    <h2>Writing a Gratitude Letter</h2>
+                    <p class="slide-subtitle">The emotional core of this experience</p>
+                </div>
+                <div class="staged">
+                    <div class="letter-instruction">
+                        <p>"Now, choose ONE person you admire."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="letter-instruction">
+                        <p>"This could be a mentor, teacher, friend, or staff member."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="letter-instruction">
+                        <p>"You will write them a letter."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="letter-instruction emphasis">
+                        <p>"Not to impress."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="letter-instruction emphasis">
+                        <p>"Not to exaggerate."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="letter-instruction">
+                        <p>"Just the truth."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="letter-writing-area">
+                        <div class="letter-guidelines">
+                            <h3>Write from your heart</h3>
+                            <ul>
+                                <li>Why you admire them</li>
+                                <li>What they did that mattered</li>
+                                <li>How they influenced your year</li>
+                                <li>What you've learned from them</li>
+                                <li>How you feel saying thank you</li>
+                            </ul>
+                            <div class="word-count">Words: <span id="wordCount">0</span></div>
+                        </div>
+                        <div class="letter-editor">
+                            <textarea 
+                                id="gratitude-letter" 
+                                placeholder="Dear [Name],
+Begin your letter here. Write like you're speaking from your heart. There's no right or wrong way to express gratitude..."
+                                rows="12"></textarea>
+                            <div class="letter-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="read-in-person">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-text">I want to read this to them in person</span>
+                                </label>
+                            </div>
+                            <p class="soft-reminder">Write like you're speaking from your heart.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6 - Speaking Gratitude -->
+        <section class="slide" id="slide6" data-slide="6">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>Speaking Gratitude</h2>
+                    <p class="slide-subtitle">Optional but powerful</p>
+                </div>
+                <div class="staged">
+                    <div class="speaking-prompt gentle">
+                        <p>"If you feel comfortable…"</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="speaking-prompt">
+                        <p>"You may speak your letter to the person."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="speaking-prompt emphasis">
+                        <p>"This is courage."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="speaking-prompt emphasis">
+                        <p>"This is gratitude in action."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="speaking-prompt">
+                        <p>"This is how relationships deepen."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="teacher-note">
+                        <h4>Teacher's Note</h4>
+                        <p>Silence is okay. Tears are okay. Take your time.</p>
+                        <p>This moment is about authenticity, not performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7 - Preparing for Next Year -->
+        <section class="slide" id="slide7" data-slide="7">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>Preparing for Next Year</h2>
+                    <p class="slide-subtitle">Looking forward with intention</p>
+                </div>
+                <div class="staged">
+                    <div class="future-prompt">
+                        <h3>Who do I want to become next year?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="future-become" 
+                                placeholder="Describe the person you aspire to be..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="future-prompt">
+                        <h3>What habits do I want to build?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="future-habits" 
+                                placeholder="Daily practices that support growth..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="future-prompt">
+                        <h3>What do I want to stop doing?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="future-stop" 
+                                placeholder="Patterns, thoughts, or behaviors to release..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="future-prompt">
+                        <h3>What skill do I want to take seriously?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="future-skill" 
+                                placeholder="One skill to develop with dedication..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="future-prompt">
+                        <h3>How do I want to feel by the end of next year?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="future-feelings" 
+                                placeholder="The emotional state you're working toward..."
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="explanation gentle">
+                        <p>"Writing this down is how you begin to track your growth."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8 - Commitment & Closing -->
+        <section class="slide" id="slide8" data-slide="8">
+            <div class="slide-content">
+                <div class="staged active">
+                    <h2>Commitment & Closing Reflection</h2>
+                </div>
+                <div class="staged">
+                    <div class="closing-statement">
+                        <p>"Gratitude closes the year with peace."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="closing-statement">
+                        <p>"Vision opens the next year with purpose."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="permission-statement">
+                        <p>"You are allowed to grow slowly."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="permission-statement">
+                        <p>"You are allowed to be proud."</p>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="final-prompt">
+                        <h3>What is one sentence you want to remember from today?</h3>
+                        <div class="response-area">
+                            <textarea 
+                                id="final-sentence" 
+                                placeholder="A phrase, insight, or commitment to carry forward..."
+                                rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="staged">
+                    <div class="cta-container final">
+                        <button class="cta-button save-button" onclick="saveAllResponses()">
+                            Save & Carry This Forward
+                        </button>
+                        <div class="final-options">
+                            <button class="print-button" onclick="window.print()">Print Reflection</button>
+                            <button class="reset-button" onclick="resetAllResponses()">Start Over</button>
+                        </div>
+                        <p class="closing-note">Your responses have been saved locally. Return anytime to review.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <button class="help-button" onclick="toggleControls()">?</button>
+        <div class="footer-links">
+            <button onclick="togglePresenterMode()" class="presenter-toggle">Presenter Mode</button>
+            <button onclick="toggleAccessibleView()" class="accessible-toggle">Accessible View</button>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
